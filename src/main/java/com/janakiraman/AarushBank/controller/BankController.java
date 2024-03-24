@@ -57,8 +57,15 @@ public class BankController {
     }
 
     //Credit
+    @PostMapping("account/credit")
+    public String creditAccount(@RequestBody Account account){
+        return accountService.creditAccount(account);
+    }
     //Debit
-
+    @PostMapping("account/debit")
+    public String debitAccount(@RequestBody Account account){
+        return accountService.debitAccount(account);
+    }
 
 
 }

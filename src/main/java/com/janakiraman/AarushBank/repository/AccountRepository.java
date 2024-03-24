@@ -44,4 +44,22 @@ public class AccountRepository {
 
         return "Account deleted";
     }
+
+    public String creditAccount(Account account) {
+
+        String sql = "UPDATE account set balance=? where number=?";
+
+        int rows = jdbcTemplate.update(sql,account.getBalance(),account.getNumber());
+
+        return "Account Credited";
+
+    }
+
+    public String debitAccount(Account account) {
+        String sql = "UPDATE account set balance=? where number=?";
+
+        int rows = jdbcTemplate.update(sql,account.getBalance(),account.getNumber());
+
+        return "Account Debited";
+    }
 }

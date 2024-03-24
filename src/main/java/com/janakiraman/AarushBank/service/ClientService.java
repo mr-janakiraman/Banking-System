@@ -23,5 +23,12 @@ public class ClientService {
         return clientRepository.findAllClients();
     }
 
+    public String addClient(Client client){
 
+        return clientRepository.addClient(client);
+    }
+
+    public String removeClient(int id) {
+        return clientRepository.delClient(id);
+    }
 }

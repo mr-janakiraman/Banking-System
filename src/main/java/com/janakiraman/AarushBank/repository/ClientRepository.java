@@ -49,4 +49,21 @@ public class ClientRepository {
             return client;
         });
     }
+
+    public String addClient(Client client) {
+        String sql = "INSERT INTO client (`name`, `address`, `id`) VALUES (?,?,?)";
+
+        int rows = jdbcTemplate.update(sql, client.getName(),client.getAddress(),client.getId());
+
+        return "Successfully inserted";
+
+    }
+
+    public String delClient(int id) {
+        String sql = "DELETE from client where id=?";
+
+        int rows = jdbcTemplate.update(sql,id);
+
+        return "Account deleted";
+    }
 }
